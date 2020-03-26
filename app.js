@@ -59,13 +59,20 @@ APP.get('/tip', (req, res) => {
 });
 
 APP.get('/tipatrandom', (req, res) => {
+    let randomPerson, resturant;
+    if (!req.query.q) {
     let N = DB.people.count();
     let r = Math.floor(Math.random() * N);
     let list = DB.people.find();
     //console.log(list);
-    let randomPerson = list[r];
-    let resturant = DB.resturants.findOne({shortName: randomPerson.place});
+     randomPerson = list[r];
+     resturant = DB.resturants.findOne({shortName: randomPerson.place});
     //console.log(randomPerson);
+    } else {
+        let list = DB.people.find({place: req.query.q});
+        resturant = DB.resturants.findOne({shortName: req.query.q});
+        randomPerson = list[Math.floor(Math.random() * list.length)];
+    }
     res.render('randomTip', {
         person: randomPerson,
         resturant: resturant
@@ -106,9 +113,9 @@ APP.post('/insert/person',upload.none(), (req, res) => {
     let venmo = req.body.venmo;
     let paypal = req.body.paypal;
     let cashapp = req.body.cashapp; 
+    let role = req.body.role;
     let name = req.body.Name;
     let place = req.body.place;
-    let role = req.body.role;
     let person = {
         name: name,
         place: place,

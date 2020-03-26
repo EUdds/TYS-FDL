@@ -6,4 +6,4 @@ assets/images/*
 !assets/images/mainstreet.jpg
 db/*
 .vscode/
-.deployment
+.deployment 
