@@ -1,0 +1,10 @@
+<h3>Your random person is {{person.name}}, a {{person.role}} at {{resturant.longName}}!</h3>
+        {{#if person.venmo}}
+        <a class="w3-button w3-blue w3-round-large" href="{{person.venmo}}">Venmo</a>
+        {{/if}}
+        {{#if person.paypal}}
+        <a class="w3-button w3-purple w3-round-large" href="{{person.paypal}}">PayPal</a>
+        {{/if}}
+        {{#if person.cashapp}}
+        <a class="w3-button w3-green w3-round-large" href="{{person.cashapp}}">Cash.App</a>
+        {{/if}}

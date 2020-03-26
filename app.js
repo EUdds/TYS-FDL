@@ -32,11 +32,16 @@ APP.get('*', (req, res, next) => {
 });
 
 APP.get('/', (req, res) => {
+    if(!req.query.q) {
    let resList = DB.resturants.find();
    console.log(resList);
   res.render('welcome', {
     resturant: resList
   });
+} else {
+    let query = req.query.q;
+    let resList = DB.resturants.find
+}
 });
 
 APP.get('/add', (req, res) => {
@@ -52,7 +57,21 @@ APP.get('/tip', (req, res) => {
         place: place,
         people: people
     });
-})
+});
+
+APP.get('/tipatrandom', (req, res) => {
+    let N = DB.people.count();
+    let r = Math.floor(Math.random() * N);
+    let list = DB.people.find();
+    console.log(list);
+    let randomPerson = list[r];
+    let resturant = DB.resturants.findOne({shortName: randomPerson.place});
+    console.log(randomPerson);
+    res.render('randomTip', {
+        person: randomPerson,
+        resturant: resturant
+    });
+});
 
 // Password Protected Routes
 const config = {

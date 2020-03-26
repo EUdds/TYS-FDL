@@ -1,6 +1,15 @@
 <a class="tipButton w3-button w3-blue w3-round-large" href="/add">Are you a service worker in need of income? Click here to join the list!</a>
+<br>
+<a class="tipButton w3-button w3-purple w3-round-large" href="/tipatrandom">Find someone in the FDL Area to tip at Random!</a>
+<br>
+<div class="w3-container">
+    {{#if resturant}}
+<input id="searchbar" class="w3-input w3-border" type="text" placeholder="Search for a resturant..." onkeyup="searchTable()">
+{{/if}}
+</div>
+<div id="resturantList">
 {{#each resturant}} 
-<div class="w3-container w3-card-4 userrecord citycard w3-round">
+<div class="w3-container w3-card-4 userrecord citycard w3-round" name="{{this.longName}}">
     <div class="cityThumb w3-left w3-circle w3-card-2" style="background-image:url('./images/{{this.shortName}}.png');"></div>
     <h3>{{this.longName}}</h3>
     <a class="tipButton w3-button w3-blue w3-round-large" href="/tip?q={{this.shortName}}">Give Someone a tip</a>
@@ -8,7 +17,23 @@
 {{else}}
 <div class="w3-container w3-card-4 userrecord citycard w3-round">
     <div class="cityThumb w3-left w3-circle w3-card-2" style="background-image:url('/images/mainstreet.jpg');"></div>
-    <h3>No Resturants Added</h3>
-    <a class="tipButton w3-button w3-blue w3-round-large" href="#">Add One!</a>
+    <h3>No Resturants Found</h3>
+    <a class="tipButton w3-button w3-blue w3-round-large" href="/add">Add yours!</a>
 </div>
 {{/each}}
+</div>
+
+<script>
+    function searchTable() {
+    let input = document.getElementById('searchbar');
+    let filter = input.value.toUpperCase();
+    let table = document.getElementById('resturantList');
+    let res = table.getElementsByTagName('div');
+    for(let i=0; i< res.length; i++) {
+        if(res[i].getAttribute('name')) {
+        if (res[i].getAttribute('name').toUpperCase().indexOf(filter) > -1) res[i].style.display = '';
+        else res[i].style.display = 'none';
+    }
+    }
+    }
+</script>
