@@ -1,0 +1,14 @@
+<a class="tipButton w3-button w3-blue w3-round-large" href="/add">Are you a service worker in need of income? Click here to join the list!</a>
+{{#each resturant}} 
+<div class="w3-container w3-card-4 userrecord citycard w3-round">
+    <div class="cityThumb w3-left w3-circle w3-card-2" style="background-image:url('./images/{{this.shortName}}.png');"></div>
+    <h3>{{this.longName}}</h3>
+    <a class="tipButton w3-button w3-blue w3-round-large" href="/tip?q={{this.shortName}}">Give Someone a tip</a>
+</div>
+{{else}}
+<div class="w3-container w3-card-4 userrecord citycard w3-round">
+    <div class="cityThumb w3-left w3-circle w3-card-2" style="background-image:url('/images/mainstreet.jpg');"></div>
+    <h3>No Resturants Added</h3>
+    <a class="tipButton w3-button w3-blue w3-round-large" href="#">Add One!</a>
+</div>
+{{/each}}

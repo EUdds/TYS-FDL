@@ -1,0 +1,152 @@
+body {
+    text-align: center;
+    font-family: Helvetica, San-Serif;
+    background-color: #444;
+    background-image: url("../images/mainstreet.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+  #bigwrapper {
+    max-width:1000px;
+    display:inline-block;
+    margin-top:20px;
+    margin-bottom:20px;
+    text-align:center;
+    background-color:#f0f0f0;
+  }
+  #loading {
+    color:#ccc;
+  }
+  #form {
+    display: none;
+    margin:5px;
+    /*padding-bottom:10px;*/
+  }
+  #result {
+    margin-top:-10px;
+    display: none;
+  }
+  #userlist {
+    /*background-color:#f7f7f7;*/
+    /*border:solid;*/
+    /*border-width: 1px;*/
+    padding:10px;
+    margin:10px;
+    border-color:#ccc;
+    max-width:980px;
+    display:inline-block;
+    text-align:left;
+  }
+  #howmany {
+    width:50px;
+  }
+  #maincopy {
+    max-width:600px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-left:10px;
+    padding-right:10px;
+    /*font-size:smaller;*/
+    color:#666;
+  }
+  #establishmentList {
+    width:300px;
+    margin-bottom:15px;
+  }
+  #randomizeControls {
+    display:block;
+  }
+  .userrecord {
+    margin:10px;
+    padding:5px;
+    -webkit-backface-visibility: hidden;
+    background-color:#fafafa;
+    /*transition: 1.5s;*/
+  }
+  .userrecord:hover {
+    /*transform: rotate(0deg);*/
+    background-color:#fff;
+    /*transition: 0.5s;*/
+  }
+  .idblock {
+    display: inline-block;
+    width:300px;
+    max-width:400px;
+    float:left;
+  }
+  .linklist {
+    display: inline-block;
+    vertical-align: text-top;
+    max-width:580px;
+    padding-top:10px;
+    text-align:center;
+  }
+  .linkblock {
+    display: inline-block;
+    vertical-align: text-top;
+    width:200px;
+    max-width:580px;
+    padding-top:10px;
+    float:right;
+    text-align:center;
+  }
+  .clearblock {
+    clear: both;
+    height:1px;
+    width:1px;
+  }
+  .name {
+    font-size:larger;
+    font-weight:bold;
+  }
+  .establishment {
+    font-size:smaller;
+    margin-left:10px;
+  }
+  .closed {
+    font-size:smaller;
+    margin-left:10px;
+  }
+  .label {
+    color: #888;
+  }
+  .citycard {
+    padding-bottom:0px;
+  }
+  .cityThumb {
+    display:inline-block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width:120px;
+    height:120px;
+    margin-top:5px;
+    margin-bottom:10px;
+    margin-left:15px;
+  }
+  #sectionHeader {
+    margin-top:20px;
+  }
+  .otherSiteThumb {
+    display:inline-block;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width:120px;
+    height:120px;
+    margin-top:5px;
+    margin-bottom:10px;
+    margin-right:15px;
+  }
+  .otherSiteContent {
+    display:inline-block;
+  }
+  .tipButton {
+    margin-bottom:5px;
+  }
+  .comingSoon {
+    background-color: #888 !important;
+    pointer-events: none !important;
+    cursor: default !important;
+  }

@@ -1,0 +1,27 @@
+<h3>Tip someone at {{place.longName}}!</h3>
+<div id="userlist">
+{{#each people}}
+<div class="userrecord w3-card-4 w3-round">
+    <div class="idblock">
+        <div class="name">{{this.name}}</div>
+        <br>
+        <span class="establishment">{{this.role}}</span>
+    </div>
+    <div class="linkblock">
+        {{#if this.venmo}}
+        <a class="w3-button w3-blue w3-round-large" href="{{this.venmo}}">Venmo</a>
+        {{/if}}
+        {{#if this.paypal}}
+        <a class="w3-button w3-purple w3-round-large" href="{{this.paypal}}">PayPal</a>
+        {{/if}}
+        {{#if this.cashapp}}
+        <a class="w3-button w3-green w3-round-large" href="{{this.cashapp}}">Cash.App</a>
+        {{/if}}
+    </div>
+    <div class="clearblock"></div>
+    <br>
+</div>
+{{else}}
+<h3>Whoops! This place is in the database, but has no employees registered, check back soon!</h3>
+{{/each}}
+</div>
