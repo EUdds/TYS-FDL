@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT || 1337;
 const EXPRESS = require('express');
 const EXPHBS = require('express-handlebars');
 const BODY_PARSER = require('body-parser');
@@ -32,16 +32,15 @@ APP.get('*', (req, res, next) => {
 });
 
 APP.get('/', (req, res) => {
-    if(!req.query.q) {
-   let resList = DB.resturants.find();
+    let resList = DB.resturants.find();
    //console.log(resList);
   res.render('welcome', {
     resturant: resList
   });
-} else {
-    let query = req.query.q;
-    let resList = DB.resturants.find
-}
+});
+
+APP.post('/', (req, res) => {
+    res.redirect('/insert');
 });
 
 APP.get('/add', (req, res) => {
@@ -75,16 +74,12 @@ APP.get('/tipatrandom', (req, res) => {
 
 // Password Protected Routes
 const config = {
-    username: process.env.username,
-    password: process.env.password,
+    username: 'dev',
+    password: 'dev',
     maxAge: 600000 // 10 Minutes
-}
-APP.use(passwordProtect(config));
+};
 
-APP.post('/', (req, res) => {
-    res.redirect('/insert');
-});
-
+// APP.use(passwordProtect(config));
 
 APP.get('/insert', (req, res) => {
     res.render('adminAdd');
@@ -113,9 +108,11 @@ APP.post('/insert/person',upload.none(), (req, res) => {
     let cashapp = req.body.cashapp; 
     let name = req.body.Name;
     let place = req.body.place;
+    let role = req.body.role;
     let person = {
         name: name,
         place: place,
+        role: role,
         venmo: venmo,
         paypal: paypal,
         cashapp: cashapp

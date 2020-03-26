@@ -5,3 +5,5 @@ assets/images/*
 .env
 !assets/images/mainstreet.jpg
 db/*
+.vscode/
+.deployment
