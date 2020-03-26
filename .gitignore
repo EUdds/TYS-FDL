@@ -1,7 +1,7 @@
 node_modules/
 .jshintrc
-./db
 .DS_Store
 assets/images/*
-!assets/images/mainstreet.jpg
 .env
+!assets/images/mainstreet.jpg
+db/*

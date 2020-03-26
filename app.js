@@ -34,7 +34,7 @@ APP.get('*', (req, res, next) => {
 APP.get('/', (req, res) => {
     if(!req.query.q) {
    let resList = DB.resturants.find();
-   console.log(resList);
+   //console.log(resList);
   res.render('welcome', {
     resturant: resList
   });
@@ -51,7 +51,7 @@ APP.get('/add', (req, res) => {
 APP.get('/tip', (req, res) => {
     let resturant = req.query.q;
     let place = DB.resturants.findOne({shortName: resturant});
-    console.log(place);
+    //console.log(place);
     let people = DB.people.find({place: resturant});
     res.render('tip', {
         place: place,
@@ -63,10 +63,10 @@ APP.get('/tipatrandom', (req, res) => {
     let N = DB.people.count();
     let r = Math.floor(Math.random() * N);
     let list = DB.people.find();
-    console.log(list);
+    //console.log(list);
     let randomPerson = list[r];
     let resturant = DB.resturants.findOne({shortName: randomPerson.place});
-    console.log(randomPerson);
+    //console.log(randomPerson);
     res.render('randomTip', {
         person: randomPerson,
         resturant: resturant
