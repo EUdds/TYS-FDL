@@ -79,6 +79,10 @@ APP.get('/tipatrandom', (req, res) => {
     });
 });
 
+APP.get('/faq', (req, res) => {
+    res.render('faq');
+})
+
 // Password Protected Routes
 const config = {
     username: 'dev',
