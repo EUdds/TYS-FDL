@@ -33,7 +33,7 @@ APP.get('*', (req, res, next) => {
 
 APP.get('/', (req, res) => {
     let resList = DB.resturants.find();
-   //console.log(resList);
+    resList.sort(compare);
   res.render('welcome', {
     resturant: resList
   });
@@ -131,3 +131,15 @@ APP.post('/insert/person',upload.none(), (req, res) => {
     DB.people.save(person);
     res.redirect('/');
 });
+/**
+ * Sorts resturants based on the first character of their longName
+ * @param {Resturant} a First resturant to compare
+ * @param {Resturant} b Second resturant to compare
+ */
+function compare(a, b) {
+    console.log(a);
+    console.log(b);
+    let result = a.longName.charAt(0) > b.longName.charAt(0);
+    if (result) return 1;
+    else return -1;
+}
