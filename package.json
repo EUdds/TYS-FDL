@@ -12,7 +12,7 @@
     "body-parser": "*",
     "diskdb": "^0.1.17",
     "dotenv": "8.2.0",
-    "express": "4.17.1",
+    "express": "4.17.3",
     "express-handlebars": "3.1.0",
     "express-password-protect": "^1.0.2",
     "multer": "^1.4.2",
